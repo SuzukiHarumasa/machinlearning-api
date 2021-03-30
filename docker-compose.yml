@@ -1,0 +1,14 @@
+version: '3'
+services:
+  lab:
+    build: ./
+    container_name: flask
+    user: root
+    volumes:
+      - $PWD:/tmp/working
+    working_dir: /tmp/working
+    # ports:
+    #   - "8860:8888"
+    ports:
+      - "8866:8888"
+    command: jupyter lab --ip=0.0.0.0 --allow-root --no-browser --NotebookApp.token=''
